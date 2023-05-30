@@ -1,0 +1,62 @@
+apply plugin: 'maven-publish'
+apply from: "../config.gradle"
+
+android {
+    compileSdk app.compileSdk
+
+    defaultConfig {
+        minSdk app.minSdk
+        targetSdk app.targetSdk
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+afterEvaluate {
+    ext.publishMaven = { bundleArtifactId, bundleVersion ->
+        publishing {
+            publications {
+                Production(MavenPublication) {
+                    from components.release
+                    groupId = "$auth.bundleGroupId"
+                    artifactId = bundleArtifactId
+                    version = bundleVersion
+                    // 上传源代码，这样使用方可以看到方法注释
+                    artifact generateSourcesJar
+                }
+            }
+
+            repositories.maven {
+                url uri('/Volumes/Android/repo')
+            }
+//             发不到本地私服
+//            repositories.maven {
+//                // 可以有且仅有一个仓库不指定 name 属性，会隐式设置为 Maven
+//                // 根据 versionName 来判断仓库地址
+//                url = bundleVersion.endsWith('SNAPSHOT')
+//                        ? "$repo.mavenSnapshot"
+//                        : "$repo.mavenRelease"
+//                // 允许使用 http
+//                allowInsecureProtocol = true
+//                // 仓库用户名密码
+//                credentials {
+//                    username = "$auth.mavenUserName"
+//                    password = "$auth.mavenPassword"
+//                }
+//            }
+        }
+    }
+}
+
+task generateSourcesJar(type: Jar) {
+    classifier 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
