@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 
-import com.ebrightmoon.arch.BaseFragment;
+import com.ebrightmoon.arch.base.BaseFragment;
 import com.ebrightmoon.arch.ViewBindingUtils;
 
 /**

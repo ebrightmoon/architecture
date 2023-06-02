@@ -1,4 +1,4 @@
-package com.ebrightmoon.arch;
+package com.ebrightmoon.arch.base;
 
 import android.app.Application;
 

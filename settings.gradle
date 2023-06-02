@@ -17,3 +17,4 @@ include ':app'
 include ':lib_arch'
 include ':lib_utils'
 include ':lib_network'
+includeBuild ('versionplugin')

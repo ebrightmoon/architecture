@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 
-import com.ebrightmoon.arch.BaseActivity;
+import com.ebrightmoon.arch.base.BaseActivity;
 import com.ebrightmoon.arch.ViewBindingUtils;
 
 /**

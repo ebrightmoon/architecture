@@ -1,4 +1,4 @@
-package com.ebrightmoon.arch;
+package com.ebrightmoon.arch.base;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,4 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * Description:  TODO
  */
 public abstract class BaseActivity  extends AppCompatActivity {
+
+
 }
+
