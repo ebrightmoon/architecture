@@ -2,7 +2,10 @@ plugins {
     id 'com.android.library'
     id "com.ebrightmoon.versionplugin"
 }
-
+//readme {
+//    readmeFile file('./README.md')
+//    readmeCnFile file('./README-CN.md')
+//}
 apply from: "../common.gradle"
 import com.ebrightmoon.versionplugin.*
 android{
@@ -19,6 +22,8 @@ dependencies {
     implementation UtilsDeps.retrofit
     implementation UtilsDeps.retrofit_converter_gson
     implementation UtilsDeps.retrofit_adapter_rxjava2
+    implementation UtilsDeps.gson
+
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'

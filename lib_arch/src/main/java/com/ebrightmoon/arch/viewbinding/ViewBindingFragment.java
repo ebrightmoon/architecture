@@ -29,6 +29,9 @@ public abstract class ViewBindingFragment<T extends ViewBinding> extends BaseFra
         return mBinding.getRoot();
     }
 
+    public T getBinding() {
+        return mBinding;
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

@@ -18,7 +18,7 @@ import java.util.function.Function;
  * Description:  TODO
  */
 public abstract class ViewBindingFrameLayout<V extends ViewBinding> extends FrameLayout {
-    protected V binding;
+    private V binding;
 
     public ViewBindingFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes, ViewBindingFunction<V> merge) {
         super(context, attrs, defStyleAttr, defStyleRes);
@@ -30,8 +30,10 @@ public abstract class ViewBindingFrameLayout<V extends ViewBinding> extends Fram
         super(context, attrs, defStyleAttr);
         binding = merge.getViewBinding(LayoutInflater.from(context), this);
     }
+
+    public V getBinding() {
+        return binding;
+    }
 }
 
-interface ViewBindingFunction<T> {
-    T getViewBinding(LayoutInflater layoutInflater, ViewGroup viewGroup);
-}
+

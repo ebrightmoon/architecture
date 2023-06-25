@@ -13,9 +13,9 @@ import com.ebrightmoon.arch.ViewBindingUtils;
  * TIME : 2023/5/30 \ 21:40
  * Description:  TODO
  */
-public abstract class ViewBindingActivity<T extends ViewBinding> extends BaseActivity {
+public abstract class ViewBindingActivity<V extends ViewBinding> extends BaseActivity {
 
-    protected T mBinding;
+    private V mBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,4 +24,7 @@ public abstract class ViewBindingActivity<T extends ViewBinding> extends BaseAct
         setContentView(mBinding.getRoot());
     }
 
+    public V getBinding() {
+        return mBinding;
+    }
 }

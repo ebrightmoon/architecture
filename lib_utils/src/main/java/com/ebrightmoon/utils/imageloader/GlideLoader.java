@@ -1,12 +1,14 @@
 package com.ebrightmoon.utils.imageloader;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
-import com.bumptech.glide.DrawableTypeRequest;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
-
+import com.bumptech.glide.request.RequestOptions;
 import java.io.File;
 
 /**
@@ -24,22 +26,22 @@ public class GlideLoader implements ILoader {
 
     @Override
     public void loadNet(ImageView target, String url, Options options) {
-        load(getRequestManager(target.getContext()).load(url), target, options);
+        getRequestManager(target.getContext()).load(url).apply(getRequestOptions(options)).into(target);
     }
 
     @Override
     public void loadResource(ImageView target, int resId, Options options) {
-        load(getRequestManager(target.getContext()).load(resId), target, options);
+        getRequestManager(target.getContext()).load(resId).apply(getRequestOptions(options)).into(target);
     }
 
     @Override
     public void loadAssets(ImageView target, String assetName, Options options) {
-        load(getRequestManager(target.getContext()).load("file:///android_asset/" + assetName), target, options);
+        getRequestManager(target.getContext()).load("file:///android_asset/" + assetName).apply(getRequestOptions(options)).into(target);
     }
 
     @Override
     public void loadFile(ImageView target, File file, Options options) {
-        load(getRequestManager(target.getContext()).load(file), target, options);
+        getRequestManager(target.getContext()).load(file).apply(getRequestOptions(options)).into(target);
     }
 
     @Override
@@ -56,15 +58,18 @@ public class GlideLoader implements ILoader {
         return Glide.with(context);
     }
 
-    private void load(DrawableTypeRequest request, ImageView target, Options options) {
+    @SuppressLint("CheckResult")
+    private RequestOptions getRequestOptions(Options options) {
+        RequestOptions requestOptions = new RequestOptions();
         if (options == null) options = Options.defaultOptions();
 
         if (options.loadingResId != Options.RES_NONE) {
-            request.placeholder(options.loadingResId);
+            requestOptions.placeholder(options.loadingResId);
         }
         if (options.loadErrorResId != Options.RES_NONE) {
-            request.error(options.loadErrorResId);
+            requestOptions.error(options.loadErrorResId);
         }
-        request.crossFade().into(target);
+        requestOptions.centerCrop().apply(requestOptions);
+        return requestOptions;
     }
 }

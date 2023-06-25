@@ -14,4 +14,22 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+
+    @Test
+    public void test() {
+        Person person = new Person(19);
+        Person person2 = new Person(18);
+        modify(person, person2);
+        System.out.println(person.getAge());
+        System.out.println(person2.getAge());
+    }
+
+    public static void modify(Person p1, Person p2) {
+        p1.setAge(30);
+        p2 = new Person(29);
+        p2.setAge(31);
+
+    }
+
 }

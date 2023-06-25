@@ -29,7 +29,6 @@
             <option value="$PROJECT_DIR$/versionplugin" />
           </set>
         </option>
-        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
