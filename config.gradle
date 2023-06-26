@@ -5,9 +5,9 @@ ext {
     ]
 
     versions = [
-            util   : "1.0.1",
+            util   : "1.0.0",
             network: "1.0.0",
-            arch   : "1.0.1",
+            arch   : "1.0.0",
             wdget : "1.0.0",
 
             kotlin     : "1.6.10",
