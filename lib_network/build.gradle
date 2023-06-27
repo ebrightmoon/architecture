@@ -5,6 +5,9 @@ plugins {
 
 apply from: "../common.gradle"
 import com.ebrightmoon.versionplugin.*
+import com.ebrightmoon.versionplugin.ArchDeps
+
+
 android{
     namespace "com.ebrightmoon.network"
 
@@ -13,8 +16,21 @@ android{
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.github.jinsedeyuzhou:HttpClient:1.0.0'
-
+//    api  'com.github.jinsedeyuzhou:HttpClient:1.0.6'
+//    // 网络请求框架：https://github.com/getActivity/EasyHttp
+//    api 'com.github.getActivity:EasyHttp:12.0'
+//    // OkHttp 框架：https://github.com/square/okhttp
+//    // noinspection GradleDependency
+//    api 'com.squareup.okhttp3:okhttp:3.12.13'
+    implementation ArchDeps.retrofit
+    implementation ArchDeps.converter_gson
+    implementation ArchDeps.okhttp
+    implementation ArchDeps.adapter_rxjava2
+    implementation ArchDeps.logging_interceptor
+    implementation ArchDeps.okio
+    implementation ArchDeps.rxandroid
+    implementation ArchDeps.rxjava
+    implementation project(':lib_utils')
     implementation 'com.google.android.material:material:1.5.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

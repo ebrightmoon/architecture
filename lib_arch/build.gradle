@@ -21,11 +21,13 @@ dependencies {
     implementation ArchDeps.annotations
     implementation ArchDeps.rxandroid
     implementation ArchDeps.rxjava
-    implementation ArchDeps.eventbus
+    implementation ArchDeps.okhttp
     implementation ArchDeps.auto_service
     implementation ArchDeps.viewmodel
     implementation ArchDeps.livedata
+    implementation ArchDeps.rxbinding
     implementation project(':lib_utils')
+    implementation project(':lib_network')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

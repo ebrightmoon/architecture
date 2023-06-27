@@ -8,21 +8,26 @@ plugins {
 //}
 apply from: "../common.gradle"
 import com.ebrightmoon.versionplugin.*
+import com.ebrightmoon.versionplugin.ArchDeps
+
 android{
     namespace "com.ebrightmoon.utils"
 
 }
 dependencies {
 
-    implementation UtilsDeps.glide
-    implementation UtilsDeps.fresco
-    implementation UtilsDeps.urlconnection
-    implementation UtilsDeps.okhttp_apache
-    implementation UtilsDeps.okhttp
-    implementation UtilsDeps.retrofit
-    implementation UtilsDeps.retrofit_converter_gson
-    implementation UtilsDeps.retrofit_adapter_rxjava2
-    implementation UtilsDeps.gson
+    implementation ArchDeps.glide
+    implementation ArchDeps.fresco
+    implementation ArchDeps.urlconnection
+    implementation ArchDeps.okhttp_apache
+    implementation ArchDeps.okhttp
+    implementation ArchDeps.retrofit
+    implementation ArchDeps.converter_gson
+    implementation ArchDeps.adapter_rxjava2
+    implementation ArchDeps.gson
+    implementation ArchDeps.eventbus
+    implementation ArchDeps.rxandroid
+    implementation ArchDeps.rxjava
 
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
