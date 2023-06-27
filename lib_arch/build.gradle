@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.library'
-    id "com.ebrightmoon.versionplugin"
+    id "com.ebrightmoon.version"
 }
 apply from: "../common.gradle"
 import com.ebrightmoon.versionplugin.*
@@ -34,5 +34,5 @@ dependencies {
 }
 
 afterEvaluate {
-    publishMaven("architecture", "$versions.arch")
+    publishMaven("arch", "$versions.arch")
 }

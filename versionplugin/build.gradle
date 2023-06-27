@@ -1,5 +1,35 @@
-plugins {
-    id 'java-gradle-plugin'
+apply plugin: 'java-gradle-plugin'
+apply plugin: 'maven-publish'
+
+//定义Maven仓库信息
+def MAVEN_GROUP_ID = "com.ebrightmoon.version"
+def MAVEN_ARTIFACT_ID = "plugin"
+def GRADLE_ID="com.ebrightmoon.version"
+def MAVEN_VERSION = "1.0.1"
+def MAVEN_NAME = "/Volumes/Android/repo"
+def MAVEN_RELEASE_URL = "mavenLocal"
+def MAVEN_USERNAME = ""
+def MAVEN_PASSWORD = ""
+group='com.ebrightmoon.version'
+version='1.0.1'
+buildscript {
+    repositories {
+        google()
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+repositories {
+    google()
+    maven { url 'https://jitpack.io' }
+    maven {url 'https://maven.aliyun.com/nexus/content/repositories/releases/'}
+    maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+    maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+    mavenCentral()
 }
 
 dependencies {
@@ -9,10 +39,40 @@ dependencies {
 gradlePlugin {
     plugins {
         version {
-            id = 'com.ebrightmoon.versionplugin'
+            id = 'com.ebrightmoon.version'
             implementationClass = 'com.ebrightmoon.versionplugin.VersionPlugin'
         }
     }
 }
 
+//定义插件的在本地 maven 中的 id
+publishing {
+    repositories {
+        maven {
+            // 发布位置
+            url uri('/Volumes/Android/repo')
+//            //指定要上传的maven私服仓库
+//            url = "http://jenkins.maxrocky.com:8080/maven/content/repositories/thirdparty/"
+            // 允许使用 http
+//            allowInsecureProtocol = true
+//            //认证用户和密码
+//            credentials {
+//                username MAVEN_USERNAME
+//                password MAVEN_PASSWORD
+//            }
+        }
+    }
+
+    publications {
+        mavenJava(MavenPublication) {
+            //插件的组ID,建议设置为插件的包名
+            groupId MAVEN_GROUP_ID
+            //插件的名字，后续在引用的时候会用到
+            artifactId MAVEN_ARTIFACT_ID
+            //定义插件的在本地 maven 中的版本号
+            version MAVEN_VERSION
+            from components.java
+        }
+    }
+}
 
