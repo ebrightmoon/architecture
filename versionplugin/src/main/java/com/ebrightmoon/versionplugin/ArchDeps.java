@@ -2,8 +2,8 @@ package com.ebrightmoon.versionplugin;
 
 public class ArchDeps {
 
-    public static String appcompat = "androidx.appcompat:appcompat:1.6.1";
-    public static String material = "com.google.android.material:material:1.9.0";
+    public static String appcompat = "androidx.appcompat:appcompat:1.4.1";
+    public static String material = "com.google.android.material:material:1.6.0";
     public static String constraint_layout = "androidx.constraintlayout:constraintlayout:2.1.4";
     public static String cardview = "androidx.cardview:cardview:1.0.0";
     public static String recyclerview = "androidx.recyclerview:recyclerview:1.2.0";
