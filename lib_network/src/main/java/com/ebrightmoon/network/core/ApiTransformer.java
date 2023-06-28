@@ -3,15 +3,11 @@ package com.ebrightmoon.network.core;
 
 
 
-import com.ebrightmoon.network.ResponseResult;
 import com.ebrightmoon.network.RetrofitClient;
 import com.ebrightmoon.network.func.ApiFunc;
 import com.ebrightmoon.network.func.ApiRetryFunc;
 
 import java.lang.reflect.Type;
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.BackpressureStrategy;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;

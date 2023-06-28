@@ -13,8 +13,8 @@ android {
 }
 
 dependencies {
-    implementation ArchDeps.appcompat_v7
-    implementation ArchDeps.design
+    implementation ArchDeps.appcompat
+    implementation ArchDeps.material
     implementation ArchDeps.constraint_layout
     implementation ArchDeps.cardview
     implementation ArchDeps.recyclerview
