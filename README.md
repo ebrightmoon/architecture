@@ -45,19 +45,19 @@ allprojects {
 添加dependency
 ```
 dependencies {
-	        implementation 'com.ebrightmoon.android:arch:latest'
+	        implementation 'com.ebrightmoon.android:arch:1.0.8'
 	}
 ```
 2. network
 ```
 dependencies {
-	        implementation 'com.ebrightmoon.android:network:latest'
+	        implementation 'com.ebrightmoon.android:network:1.0.8'
 	}
 ```
 3. utils
 ```
 dependencies {
-	        implementation 'com.ebrightmoon.android:utils:latest'
+	        implementation 'com.ebrightmoon.android:utils:1.0.8'
 	}
 ```
 4. widget

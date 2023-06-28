@@ -15,7 +15,6 @@ android{
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.6.1'
 //    api  'com.github.jinsedeyuzhou:HttpClient:1.0.6'
 //    // 网络请求框架：https://github.com/getActivity/EasyHttp
 //    api 'com.github.getActivity:EasyHttp:12.0'
