@@ -5,7 +5,7 @@ plugins {
 
 apply from: "../common.gradle"
 import com.ebrightmoon.versionplugin.*
-import com.ebrightmoon.versionplugin.ArchDeps
+
 
 
 android{
@@ -15,7 +15,7 @@ android{
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
 //    api  'com.github.jinsedeyuzhou:HttpClient:1.0.6'
 //    // 网络请求框架：https://github.com/getActivity/EasyHttp
 //    api 'com.github.getActivity:EasyHttp:12.0'
@@ -31,7 +31,7 @@ dependencies {
     implementation ArchDeps.rxandroid
     implementation ArchDeps.rxjava
     implementation project(':lib_utils')
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.9.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
